@@ -7,7 +7,7 @@ const productRouter = require('./productRouter');
 
 // Appel de la route acceuil de l'API
 router.get("/", (req,res) => {
-    res.send("Bon artisan");
+    res.status(200).json("Bon artisan");
 });
 
 // Appel des routes products
