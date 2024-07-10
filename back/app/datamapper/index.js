@@ -1,6 +1,6 @@
-const productController = require('./productController');
+const productDatamapper = require('./productDatamapper');
 
 
 module.exports = {
-    productController
+    productDatamapper
 };

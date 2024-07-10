@@ -1,12 +1,11 @@
 const express = require("express");
-const {userController} = require('../controllers/index.js');
+const { productController } = require('../controllers');
 const productRouter= express.Router();
 
 
 //!Route GET
 
-// userRouter.get("/petsitter/:id", cw(userController.findUserById));
-// productRouter.get("/products", )
+productRouter.get("/products", productController.findProducts);
 
 
 module.exports = productRouter;
