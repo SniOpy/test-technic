@@ -1,20 +1,59 @@
 import * as React from 'react';
-import Stack from '@mui/material/Stack';
-import { Container, CssBaseline } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import Items from '../components/Items/Items';
 
 import "./App.scss";
 
 
 function App  ()  {
+
+   //! States
+   const [products, setProducts] = React.useState([]);
+
+   //! Comportements
+ 
+    //  const handleDelete = (id) => {
+ 
+    //      //* copie du state
+ 
+    //      const productsCopy = [...products];
+ 
+    //      //* manipulation de la copie du state
+         
+    //      const productsCopyUpdated = productsCopy.filter(item => id !== item.id);
+ 
+    //      //* Modification du state avec le setter
+ 
+    //      setProducts(productsCopyUpdated);
+ 
+    //  };
+ 
+   const getProducts = () => {
+ 
+     fetch("http://localhost:5000/products")
+     .then(res => res.json())
+     .then(json => setProducts(json));
+ 
+   }
+ 
+   React.useEffect(() => {
+     getProducts();
+   }, []);
+ 
   //! Affichage
  return (
   <div className="App">
-        <h1>Les Bons Artisans</h1>
-        <h3>Nos produits</h3>
-        
-          <Items/> 
-        
+        <Container>
+          <h1>Bons Artisans</h1>
+          <h2>Nos produits</h2>
+          <Grid container spacing={3}>
+            {products.map((product) => (
+            <Grid item key={product.id} xs={12} md={6} lg={4}>
+              <Items note={product}/>
+            </Grid>
+            ))}
+          </Grid> 
+        </Container>
     </div>
   )
 }

@@ -1,6 +1,6 @@
+import { Card, CardContent, CardHeader, IconButton, Typography } from "@mui/material";
 import * as React from "react";
-import ColorButtons from '../ColorButtons/ColorButtons';
-import  CardMedia  from "../CardMedia/CardMedia";
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 interface Item {
   name_product: string;
@@ -15,11 +15,28 @@ interface ItemsProps {
   produit : Item[];
 }
 
-function Items () {
+function Items ({note}) {
+
 
   return (
   <div>
-    <CardMedia/>
+    <Card elevation={3}>
+      <CardHeader 
+
+        action={
+          <IconButton>
+            <DeleteForeverOutlinedIcon color="error"/>
+          </IconButton>
+        }
+        title={note.name_product}
+        subheader={note.type_product}
+      />
+      <CardContent>
+        <Typography variant="body1" color="textSecondary">
+          {note.price.toFixed(2) + " $"}
+        </Typography>
+      </CardContent>
+    </Card>
   </div>
   )
 
