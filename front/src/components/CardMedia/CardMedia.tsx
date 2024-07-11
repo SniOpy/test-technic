@@ -10,6 +10,7 @@ import Stack from '@mui/material/Stack';
 import { green } from '@mui/material/colors';
 import Icon from '@mui/material/Icon';
 import { light } from '@mui/material/styles/createPalette';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@mui/material';
 
 export default function ImgMediaCard() {
 
@@ -18,22 +19,21 @@ export default function ImgMediaCard() {
     const [products, setProducts] = useState([]);
   //! Comportements
 
+    const handleDelete = (id) => {
 
+        //* copie du state
 
-  const handleDelete = (id) => {
+        const productsCopy = [...products];
 
-    //* Copie du state
-    const productsCopy = [...products];
+        //* manipulation de la copie du state
+        
+        const productsCopyUpdated = productsCopy.filter(item => id !== item.id);
 
-    //* manipulation de la copie
+        //* Modification du state avec le setter
 
-    const productUpdated = productsCopy.filter(product => product.id !== id)
-    
-    
-    //* on utilise le setter afin de modifier le state
-    setProducts(productUpdated);
-  }
-  
+        setProducts(productsCopyUpdated);
+
+    };
 
   const getProducts = () => {
 
@@ -56,17 +56,17 @@ export default function ImgMediaCard() {
               component="img"
               alt=""
               height="140"
-              image="../../public/3.jpg"
+              image={product.id+".jpg"}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
                 {product.name_product}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-              
+                {product.type_product}
               </Typography>
               <Typography variant="body2" color="text.secondary">
-              
+              {product.price.toFixed(2)} $
               </Typography>
               <Typography variant="body2" color="text.secondary">
       
@@ -78,7 +78,7 @@ export default function ImgMediaCard() {
               <Button size="small" variant='outlined' onClick={() => handleDelete(product.id)}>Supprimer</Button>
             </CardActions>
           </Card>
-            )
+                        )
         )}
     </div>
   )
