@@ -12,21 +12,21 @@ function App  ()  {
 
    //! Comportements
  
-    //  const handleDelete = (id) => {
+     const handleDelete = (id) => {
  
-    //      //* copie du state
+         //* copie du state
  
-    //      const productsCopy = [...products];
+         const productsCopy = [...products];
  
-    //      //* manipulation de la copie du state
+         //* manipulation de la copie du state
          
-    //      const productsCopyUpdated = productsCopy.filter(item => id !== item.id);
+         const productsCopyUpdated = productsCopy.filter(item => id !== item.id);
  
-    //      //* Modification du state avec le setter
+         //* Modification du state avec le setter
  
-    //      setProducts(productsCopyUpdated);
+         setProducts(productsCopyUpdated);
  
-    //  };
+     };
  
    const getProducts = () => {
  
@@ -49,7 +49,7 @@ function App  ()  {
           <Grid container spacing={3}>
             {products.map((product) => (
             <Grid item key={product.id} xs={12} md={6} lg={4}>
-              <Items note={product}/>
+              <Items note={product} handleDelete={handleDelete}/>
             </Grid>
             ))}
           </Grid> 

@@ -15,16 +15,16 @@ interface ItemsProps {
   produit : Item[];
 }
 
-function Items ({note}) {
+function Items ({note, handleDelete}) {
 
 
+  //! Affichage
   return (
-  <div>
     <Card elevation={3}>
       <CardHeader 
 
         action={
-          <IconButton>
+          <IconButton onClick={() => handleDelete(note.id)}>
             <DeleteForeverOutlinedIcon color="error"/>
           </IconButton>
         }
@@ -37,7 +37,7 @@ function Items ({note}) {
         </Typography>
       </CardContent>
     </Card>
-  </div>
+    
   )
 
 }
