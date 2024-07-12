@@ -10,7 +10,7 @@ function App  ()  {
    //! States
    const [products, setProducts] = React.useState([]);
 
-   const [newProduct, setNewProduct] = React.useState("Sam");
+   const [newProduct, setNewProduct] = React.useState("");
 
    //! Comportements
 
@@ -54,16 +54,15 @@ function App  ()  {
         id:idNewProduct,
         name_product: nameProduct,
         type_product: "phone",
-        price:price,
-        warranty_years: warranty_years,
-        rating: rating,
-        available:available
+        price,
+        warranty_years,
+        rating,
+        available
       });
-      
+
       //! On ajoute l'élément dans notre tableau
       setProducts(productCopy);
-      
-
+      setNewProduct("");
       
      }
 

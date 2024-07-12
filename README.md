@@ -1,8 +1,8 @@
 # Test technic
-Application web qui affiche nos différents produits, avec la possibilité de modifier, supprimer ou même créer un nouveau produits
+Application web qui affiche nos différents produits, avec la possibilité d'ajouter ou supprimer un produit 
 
 # Pré-requis
-Positionner vous sur le dossier back en tapant 
+Positionnez-vous sur le dossier back en tapant 
 ```
 cd back
 ```
@@ -17,7 +17,6 @@ bash ./scripts/deploy_db.sh
 
  ```
 cd back
-
 npm install
 npm run dev 
  ```
