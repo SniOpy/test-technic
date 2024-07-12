@@ -3,6 +3,7 @@ import * as React from "react";
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
 interface Item {
+  id: number;
   name_product: string;
   type_product: string;
   available: boolean;
@@ -15,7 +16,7 @@ interface ItemsProps {
   produit : Item[];
 }
 
-function Items ({note, handleDelete}) {
+function Items ( {note, handleDelete} ) {
 
 
   //! Affichage
